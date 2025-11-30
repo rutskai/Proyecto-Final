@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="/css/auth.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+</head>
+
+<body id="login">
+
+    <%- include('../partials/header') %>
+
+        <form class="form" action="/register" method="POST">
+
+            <div class="title-form">
+                <h1>Sign up</h1>
+            </div>
+
+            <p>Introduzca sus datos</p>
+    
+
+            <div class="form-group">
+                <label for="username">Usuario:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="form-group">
+                <label id="labelEmail" for="email">Email:</label>
+                <input type="text" id="email" name="username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Constraseña:</label>
+                <input type="password" id="password" name="password" required>
+
+            </div>
+
+ <div class="form-group">     <label id="labelRepeatPassword" for="repeatPassword">Repita Constraseña:</label>
+            <input type="password" id="repeatPassword" name="repeatPassword" required> </div>
+
+
+    
+            <input type="submit" id="send-register" value="Registrarse">
+
+        </form>
+
+
+
+
+</body>
+
+</html>
