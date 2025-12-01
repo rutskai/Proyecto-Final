@@ -15,10 +15,10 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 60px;
+  height: 70px;
   display: block;
+border-bottom: 1px solid black;
 
-  border-bottom: 2px solid black;
  background-color: rgb(32, 45, 56);
   color: rgb(32, 45, 56);
 
@@ -66,9 +66,11 @@ text-decoration: none;
   
   height: 100%;
   float: left;
-  padding: 0px 20px;
-  border-right: 1px solid white;
+  padding: 0px 15px;
   
+}
+.navigation li:first-child{
+  padding-left: 30px;
   
 }
 
@@ -133,6 +135,8 @@ font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, O
   background-color: aliceblue;
 
 }
+
+
 
 
 /* Movimiento hacia arriba */
