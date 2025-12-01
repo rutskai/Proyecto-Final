@@ -11,12 +11,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
     <!-- Librería para slider con Swiper -->
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
-/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
 
 
@@ -31,30 +28,33 @@
 
                     <div class="swiper mySwiper">
                         <div class="swiper-wrapper">
-                           <% for(let i = 0; i < 5; i++) { %>
-                                  <% popularCards.forEach(card=> { %>
+                            <% for(let i=0; i < 5; i++) { %>
+                                <% popularCards.forEach(card=> { %>
                                     <div class="swiper-slide card">
                                         <img src="<%= card.image %>" alt="<%= card.name %>" />
                                     </div>
-                                <% }) %>
-                                
-                            <%} %>
-                         </div>
+                                    <% }) %>
+
+                                        <%} %>
+                        </div>
                     </div>
                 </section>
 
-                <div class="div-collection">
- <p class="txt-collection">Elegir colecciones</p>
- <i class="fa-solid fa-sort-down"></i>
-                </div>
-               
+                <div class="logo">
+                    <div class="category">
+                        <p>Elegir categoría</p>
+                    </div>
+                    <i class="fa-solid fa-sort-down"></i>
+                    </div>
+             
+
 
             </div>
         </div>
 
         <script src="/js/slider.js"></script>
-        
-       
+
+
 </body>
 
 </html>
