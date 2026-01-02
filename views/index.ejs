@@ -19,12 +19,13 @@
 
 </head>
 
-<body>
+<body class="video-bg" data-vide-bg="/video/pickachu_runtime">
+
     <%- include('partials/header') %>
         <div class="container-index">
             <div class="content-index">
                 <section class="slider">
-                    <h1>Cartas populares</h1>
+                    <h1>Cartas destacadas</h1>
 
                     <div class="swiper mySwiper">
                         <div class="swiper-wrapper">
@@ -40,20 +41,40 @@
                     </div>
                 </section>
 
-                <div class="logo">
-                    <div class="category">
-                        <p>Elegir categoría</p>
+                <div class="category-logo">
+                    <div class="category-btn">
+                        <p>Ver colección</p>
                     </div>
                     <i class="fa-solid fa-sort-down"></i>
-                    </div>
-             
+                </div>
+
+
 
 
             </div>
+
+            <div class="content-category">
+                <h2>Colección</h2>
+
+                <div><img src="img/category/comn.png" alt="Eléctrico">
+                    <p>Eléctrico</p>
+                </div>
+                <div><img src="img/category/infrecente.png" alt="Agua"></div>
+                <div><img src="img/category/rara.png" alt="Tierra"></div>
+                <div><img src="img/category/normal.svg" alt="Normal"></div>
+
+            </div>
+
+
+
+
         </div>
 
-        <script src="/js/slider.js"></script>
+        <%- include('partials/vide-scripts') %>
 
+        <!-- Lógica slider -->
+        <script src="/js/slider.js"></script>
+        <script src="/js/scroll.js"></script>
 
 </body>
 
