@@ -5,12 +5,6 @@
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-body {
-
-  background-image: url("/img/fondo.jpg");
-  background-size: cover;
-  
-}
 
 .header {
   position: fixed;
@@ -19,6 +13,7 @@ body {
   height: 70px;
   display: block;
 border-bottom: 1px solid black;
+z-index: 1000;
 
  background-color: rgb(32, 45, 56);
   color: rgb(32, 45, 56);
@@ -53,6 +48,7 @@ border-bottom: 1px solid black;
  color: white;
  height: 100%;
  padding-left: 20px;
+ padding-right: 20px;
 text-decoration: none;
  display: table-cell;
  vertical-align: middle;
@@ -62,29 +58,14 @@ text-decoration: none;
 }
 
 .navigation li{
-  display: table;
-  
-  height: 100%;
-  float: left;
-  padding: 0px 15px;
-  
-}
-.navigation li:first-child{
-  padding-left: 30px;
-  
-}
 
-.navigation li:last-child{
-   border-right: 0;
+  padding-right: 10px;
 }
 
 .navigation li a{
-  display: table-cell;
-  vertical-align: middle;
   font-size: 15px;
   color: white;
   text-decoration: none;
-  
 }
 
 
