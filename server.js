@@ -1,21 +1,41 @@
 const express = require('express');
 const path = require('path');
+const session = require('express-session'); 
+const authRoutes = require('./src/routes/auth.js');
+const { fetchAndInsertCards} = require("./src/api/fetchFirstGenCards.js");
+const { Card } = require('./src/models/cards.js');
 const app = express();
 const PORT = 8080;
 
-// Archivos estáticos 
+// archivos estáticos 
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Middleware para formularios
+// middleware para formularios
 app.use(express.urlencoded({ extended: true }));
 
 // plantillas EJS
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use(session({
+    secret: 'my_secret',
+    resave: false,
+    saveUninitialized: false
+}));
 
-app.get('/', (req, res) => {
-  const popularCards = [
+// poder utilizar el modelo User en cualquier sitio
+
+app.use((req, res, next) => {
+    res.locals.user = req.session.user || null;
+    next();
+});
+
+app.use('/auth', authRoutes);
+
+
+
+app.get("/", async (req, res) => {
+      const popularCards = [
     { name: 'Pikachu', image: '/img/cards/pikachuEX.webp' },
     { name: 'Charizard', image: '/img/cards/charizardEX.webp' },
     { name: 'Mewtwo', image: '/img/cards/mewtwoEX.webp' },
@@ -24,18 +44,25 @@ app.get('/', (req, res) => {
   ];
 
   console.log('Cargando index con cartas populares...'); // para verificar en terminal
-  res.render('index', { popularCards });
-});
-app.get('/auth/register', (req, res) => res.render('auth/register'));
-app.get('/auth/login', (req, res) => res.render('auth/login'));
 
-app.post('/auth/register', (req, res) => {
-  const { username, password } = req.body;
-  console.log('Nuevo registro:', username, password);
-  res.send('Usuario registrado con éxito');
+    const cards = await Card.findAll();
+    res.render("index", { popularCards, cards });
 });
 
+async function init() {
+    try {
+        app.listen(PORT, () => {
+            console.log(`Servidor corriendo en ➜ http://localhost:${PORT}`);
+        });
 
-app.listen(PORT, () =>
-  console.log(`Servidor corriendo en ➜ http://localhost:${PORT}`)
-);
+        // Llamada a la API en background
+        fetchAndInsertCards().catch(err => console.error("Error importando cartas:", err.message));
+    } catch (err) {
+        console.error("Error iniciando la app:", err);
+    }
+}
+
+init();
+
+
+
