@@ -5,13 +5,13 @@ const User = require('../models/users.js');
 
 router.get('/register', (req, res) => res.render('auth/register'));
 router.get('/login', (req, res) => res.render('auth/login'));
-router.get('/user', (req, res) => {
-    if (!req.session.user) return res.redirect('/auth/login');
-});
-
 
 router.post('/register', async (req, res) => {
     const { name, email, password } = req.body;
+
+    if (!name || !email || !password) {
+    return res.status(400).send('Todos los campos son obligatorios');
+}
 
     try {
 
@@ -47,7 +47,7 @@ router.post('/login', async (req, res) => {
             return res.status(400).send('Email o contraseña incorrecta');
         }
 
-        req.session.user = { id: user.id, name: user.name };
+        req.session.user = { id: user.id, name: user.name, email: user.email};
         res.redirect('/');
     } catch (err) {
         res.status(500).send(err.message);
@@ -60,8 +60,5 @@ router.get('/logout', (req, res) => {
         res.redirect('/');
     });
 });
-
-
-
 
 module.exports = router;
