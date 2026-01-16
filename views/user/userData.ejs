@@ -7,6 +7,8 @@
     <title>User</title>
     <link rel="stylesheet" href="/css/auth.css">
     <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/user.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
 
@@ -16,10 +18,33 @@
 
     <%- include('../partials/header') %>
 
-        
+        <div class="form-user p-4">
+
+            <div class="profile-picture">
+            <img src="/img/profilePicture/Sprigatito.png" alt="Profile picture">
+            <%= user.name %>
+            </div>
+
+            <div class="profile-content">
+                <%= user.email %>
+
+            </div>
+            
+            <form action="/auth/user/update" method="POST" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="username"></label>
+                    <input type="text" name="username" id="username" placeholder="Nuevo nombre">
+                </div>
+
+                <input type="file" name="avatar">
+                <button type="submit">Guardar cambios</button>
+            </form>
 
 
-<%- include('../partials/vide-scripts') %>
+        </div>
+
+
+        <%- include('../partials/vide-scripts') %>
 
 
 

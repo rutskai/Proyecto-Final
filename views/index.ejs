@@ -42,39 +42,37 @@
                 </section>
 
                 <div class="category-logo">
-                    <div class="category-btn">
-                        <p>Ver colección</p>
+                    <div  type="button" class="btn btn-outline-primary shadow">
+                        <i class="bi bi-arrow-down"></i> <span>Ver colección</span> <i class="bi bi-arrow-down"></i>
                     </div>
-                    <i class="fa-solid fa-sort-down"></i>
+                    <i class="bi bi-caret-down-fill"></i>
                 </div>
-
-
-
-
             </div>
 
             <div class="content-category">
-                <h2>Colección</h2>
 
-                <div><img src="img/category/comn.png" alt="Eléctrico">
-                    <p>Eléctrico</p>
-                </div>
-                <div><img src="img/category/infrecente.png" alt="Agua"></div>
-                <div><img src="img/category/rara.png" alt="Tierra"></div>
-                <div><img src="img/category/normal.svg" alt="Normal"></div>
-
+                <h2> Colección </h2>
+                <% cards.forEach(card=> { %>
+                    <div class="card-category">
+                        <img src="<%= card.image_url %>" alt="<%= card.name %>">
+                        <p>
+                            <%= card.name %>
+                        </p>
+                        <p>Rareza: <%= card.rarity %>
+                        </p>
+                        <p>Precio: $<%= card.price %>
+                        </p>
+                    </div>
+                    <% }) %>
             </div>
-
-
-
 
         </div>
 
         <%- include('partials/vide-scripts') %>
 
-        <!-- Lógica slider -->
-        <script src="/js/slider.js"></script>
-        <script src="/js/scroll.js"></script>
+            <!-- Lógica slider -->
+            <script src="/js/slider.js"></script>
+            <script src="/js/scroll.js"></script>
 
 </body>
 
