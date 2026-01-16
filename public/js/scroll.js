@@ -1,4 +1,4 @@
-const button = document.querySelector('.category-btn');
+const button = document.querySelector('.btn.btn-outline-primary');
 const target = document.querySelector('.content-category');
 
 button.addEventListener('click', () => {
