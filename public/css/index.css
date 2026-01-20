@@ -67,11 +67,10 @@ color: #1a2230;
   color: rgba(32, 45, 56, 0.796);
   display: inline-block;
   transform: scaleX(5); /* más ancho */
+
 }
 
-.bi.bi-caret-down-fill:hover{
-  color: #ffcc00;
-}
+
 
 
 .bi.bi-arrow-down{
@@ -85,7 +84,7 @@ margin-left: 10px;
 .category-logo{
   margin-top: 20px;
   width: 200px;
-  height: 200px;
+  height: 120px;
   display: inline-block;
 }
 
@@ -97,9 +96,7 @@ padding-bottom: 40px;
 
 }
 
-.category-logo:hover{
-  cursor: pointer;
-}
+
 
 .content-category div img{
 width: 100%;
